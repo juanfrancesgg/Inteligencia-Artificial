@@ -7,6 +7,7 @@ package componentes;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import javax.swing.JFrame;
+import maquina.Maquina;
 
 /**
  *
@@ -15,7 +16,7 @@ import javax.swing.JFrame;
 public class Tablero extends JFrame {
 
     private static Tablero tablero;
-    private ArrayList<Celda> celdas;
+    public ArrayList<Celda> celdas;
 
     private Tablero() {
 
@@ -30,9 +31,10 @@ public class Tablero extends JFrame {
             celdas.get(x).addMouseListener(celdas.get(x));
             add(celdas.get(x));
         }
-
+        
         setLocation(480, 180);
-        this.setSize(400,400);
+        setSize(400,400);
+        setTitle("4EnRalla");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
     }
