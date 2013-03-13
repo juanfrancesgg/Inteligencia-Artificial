@@ -7,7 +7,6 @@ package componentes;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import javax.swing.JFrame;
-import maquina.Maquina;
 
 /**
  *
@@ -34,7 +33,7 @@ public class Tablero extends JFrame {
         
         setLocation(480, 180);
         setSize(400,400);
-        setTitle("4EnRalla");
+        setTitle("4EnRaya");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
     }

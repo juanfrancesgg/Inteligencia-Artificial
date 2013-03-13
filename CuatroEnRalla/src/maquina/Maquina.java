@@ -26,35 +26,41 @@ public class Maquina {
         puntuacionesJugada = new ArrayList();
         puntuacionMejorJugada = -11;
         mejorJugada = -1;
-
+        /*
         for (int x = 0; x < 10; x++) {
 
             puntuacionesJugada.add(new Integer(0));
         }
+        
         for (Celda c : celdas) {
 
             if (c.ocupadaPor() == 0) {
 
                 c.setOcupada(1);
-                
+
                 for (int x = 0; x < 10; x++) {
 
                     puntuacionesJugada.set(x, 0);
                 }
-                
+
                 for (Celda s1 : celdas) {
 
                     puntuacionParcialJugada = s1.ocupadaPor();
 
                 }
 
-
-
-
                 c.setOcupada(0);
             }
         }
-        tablero.celdas.get(1).setOcupada(1);
-        tablero.celdas.get(1).dibujar();
+        */
+        boolean ok = false;
+        for (Celda c : celdas) {
+            if (c.ocupadaPor() == 0 && ok == false) {
+                c.setOcupada(1);
+                c.dibujar();
+                ok = true;
+            }
+        }
+
     }
 }

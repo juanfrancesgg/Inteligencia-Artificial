@@ -25,8 +25,6 @@ public class Main {
             public void run() {
 
                 tablero = Tablero.getInstance();
-
-                SwingUtilities.updateComponentTreeUI(tablero);
                 tablero.setVisible(true);
             }
         });
