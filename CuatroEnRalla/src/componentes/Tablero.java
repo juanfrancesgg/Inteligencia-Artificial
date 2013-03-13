@@ -16,18 +16,24 @@ public class Tablero extends JFrame {
 
     private static Tablero tablero;
     public ArrayList<Celda> celdas;
+    public ArrayList<Boton> botones;
 
     private Tablero() {
 
         celdas = new ArrayList();
         
-        GridLayout grid = new GridLayout(4,4);
+        GridLayout grid = new GridLayout(7,7);
         setLayout(grid);
         
-        for (int x = 0; x <16; x++){
+        for(int x= 0; x < 7; x++){
+            
+            botones.add(new Boton(x));
+            add(botones.get(x));
+        }
+        
+        for (int x = 0; x <42; x++){
             
             celdas.add(new Celda(x));
-            celdas.get(x).addMouseListener(celdas.get(x));
             add(celdas.get(x));
         }
         

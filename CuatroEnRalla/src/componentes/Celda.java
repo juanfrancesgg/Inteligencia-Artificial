@@ -9,17 +9,14 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
-import maquina.Maquina;
 
 /**
  *
  * @author 66786575
  */
-public class Celda extends JPanel implements MouseListener {
+public class Celda extends JPanel{
 
     private int ocupada;
     public int fila;
@@ -27,8 +24,8 @@ public class Celda extends JPanel implements MouseListener {
 
     public Celda(int num) {
 
-        fila = num / 4;
-        columna = num % 4;
+        fila = num / 6;
+        columna = num % 6;
         ocupada = 0;
         setBackground(Color.white);
         setBorder(BorderFactory.createBevelBorder(0, Color.BLACK, Color.BLACK));
@@ -72,32 +69,5 @@ public class Celda extends JPanel implements MouseListener {
      */
     public void setOcupada(int _ocupada) {
         ocupada = _ocupada;
-    }
-
-    @Override
-    public void mouseClicked(MouseEvent me) {
-
-        if (ocupada == 0) {
-            ocupada = -1;
-            System.out.println("Ocupo la casilla: " + fila + " " + columna);
-            dibujar();
-            Maquina.ejecutarMovimiento();
-        }
-    }
-
-    @Override
-    public void mousePressed(MouseEvent me) {
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent me) {
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent me) {
-    }
-
-    @Override
-    public void mouseExited(MouseEvent me) {
     }
 }
