@@ -20,25 +20,30 @@ public class Tablero extends JFrame {
 
     private Tablero() {
 
+        botones = new ArrayList();
         celdas = new ArrayList();
-        
-        GridLayout grid = new GridLayout(7,7);
+
+        GridLayout grid = new GridLayout(7, 7);
         setLayout(grid);
-        
-        for(int x= 0; x < 7; x++){
-            
-            botones.add(new Boton(x));
-            add(botones.get(x));
+
+        for (int x = 0; x < 42; x++) {
+
+            celdas.add(new Celda(x));
         }
         
-        for (int x = 0; x <42; x++){
-            
-            celdas.add(new Celda(x));
+        for (int x = 0; x < 7; x++) {
+
+            botones.add(new Boton(x % (6 + 1), celdas));
+            add(botones.get(x));
+            botones.get(x).addActionListener(botones.get(x));
+        }
+        
+        for (int x = 0; x < 42; x++) {
             add(celdas.get(x));
         }
-        
+
         setLocation(480, 180);
-        setSize(400,400);
+        setSize(400, 400);
         setTitle("4EnRaya");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 

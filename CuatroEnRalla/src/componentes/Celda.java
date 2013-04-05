@@ -16,7 +16,7 @@ import javax.swing.JPanel;
  *
  * @author 66786575
  */
-public class Celda extends JPanel{
+public class Celda extends JPanel {
 
     private int ocupada;
     public int fila;
@@ -25,7 +25,7 @@ public class Celda extends JPanel{
     public Celda(int num) {
 
         fila = num / 6;
-        columna = num % 6;
+        columna = num % (6 + 1);
         ocupada = 0;
         setBackground(Color.white);
         setBorder(BorderFactory.createBevelBorder(0, Color.BLACK, Color.BLACK));
@@ -38,23 +38,27 @@ public class Celda extends JPanel{
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        Graphics2D g2d = (Graphics2D) g;
-        Dimension d = getSize();
-        g2d.setStroke(new BasicStroke(3));
 
-        if (ocupada == -1) {
-
-            g2d.setColor(Color.RED);
-            g2d.drawLine((int) d.getWidth() / 10, (int) d.getHeight() / 10, ((int) d.getWidth() - (int) d.getWidth() / 10), ((int) d.getHeight() - (int) d.getHeight() / 10));
-            g2d.drawLine((int) d.getWidth() / 10, ((int) d.getHeight() - (int) d.getHeight() / 10), ((int) d.getWidth() - (int) d.getWidth() / 10), (int) d.getHeight() / 10);
+        if (ocupada != 0) {
+            
+            Graphics2D g2d = (Graphics2D) g;
+            Dimension d = getSize();
+            g2d.setStroke(new BasicStroke(3));
+            
+            if (ocupada == -1) {
+                g2d.setColor(Color.RED); 
+            }
+            if (ocupada == 1) {
+                g2d.setColor(Color.BLUE);
+            }
+            g2d.fillOval((int) d.getWidth() / 20, (int) d.getHeight() / 20,
+            ((int) d.getWidth() - (int) d.getWidth() / 10), 
+            ((int) d.getHeight() - (int) d.getHeight() / 10));
+            g2d.drawOval((int) d.getWidth() / 20, (int) d.getHeight() / 20,
+            ((int) d.getWidth() - (int) d.getWidth() / 10), 
+            ((int) d.getHeight() - (int) d.getHeight() / 10));
+            g2d.setStroke(new BasicStroke(1));
         }
-
-        if (ocupada == 1) {
-
-            g2d.setColor(Color.BLUE);
-            g2d.drawOval((int) d.getWidth() / 20, (int) d.getHeight() / 20, ((int) d.getWidth() - (int) d.getWidth() / 10), ((int) d.getHeight() - (int) d.getHeight() / 10));
-        }
-        g2d.setStroke(new BasicStroke(1));
     }
 
     /**
