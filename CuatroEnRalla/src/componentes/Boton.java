@@ -47,6 +47,9 @@ public class Boton extends JButton implements ActionListener {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
+        //Ya se que es una chapuza que esto este aqui
+        //Estaba intentando que la imagen se reescalara
+        //Al modificar el tamaño de la ventana pero no lo consigo
         try {
 
             imagen = ImageIO.read(fich);
@@ -68,16 +71,15 @@ public class Boton extends JButton implements ActionListener {
         for (Celda c : celdas_columna) {
 
             if (c.ocupadaPor() == 0) {
-                ultimaCasilla ++;
+                ultimaCasilla++;
                 maxLibre = x;
             }
             x++;
         }
-        if (maxLibre != -1) {
-            celdas_columna.get(maxLibre).setOcupada(-1);
-            celdas_columna.get(maxLibre).dibujar();
-        }
-        if (ultimaCasilla == 0){
+        celdas_columna.get(maxLibre).setOcupada(-1);
+        celdas_columna.get(maxLibre).dibujar();
+
+        if (ultimaCasilla == 0) {
             setEnabled(false);
         }
         Maquina.ejecutarMovimiento();

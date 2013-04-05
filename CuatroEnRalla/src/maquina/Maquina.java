@@ -57,7 +57,7 @@ public class Maquina {
          }
          }
          */
-        
+
         //Generador de jugada en posición aleatoria
         int x = 0;
         Random randomGenerator = new Random();
@@ -84,10 +84,9 @@ public class Maquina {
             }
             x++;
         }
-        if (maxLibre != -1) {
-            celdas_columna.get(maxLibre).setOcupada(1);
-            celdas_columna.get(maxLibre).dibujar();
-        }
+        celdas_columna.get(maxLibre).setOcupada(1);
+        celdas_columna.get(maxLibre).dibujar();
+
         if (ultimaCasilla == 0) {
             botones.get(columnaRandom).setEnabled(false);
         }
